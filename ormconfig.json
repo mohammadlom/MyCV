@@ -1,0 +1,17 @@
+{
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "mysqldb",
+    "password": "123456789",
+    "database": "cv",
+    "entities": [
+        "dist/**/*.entity{.ts,.js}"
+    ],
+    "migrations": [
+        "dist/shared/migrations/*{.ts,.js}"
+    ],
+    "synchronize": false,
+    "migrationRun": false
+
+}

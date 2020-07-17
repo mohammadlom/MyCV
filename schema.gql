@@ -1,0 +1,47 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type PostCategory {
+  id: Int!
+  title: String!
+  posts: [Post!]!
+  createdAt: String!
+  updatedAt: String!
+  deletedAt: String!
+}
+
+type Comment {
+  id: Int!
+  message: String!
+  user: User!
+  isActive: Boolean!
+  createdAt: String!
+  post: Comment!
+}
+
+type Post {
+  id: Int!
+  title: String!
+  body: String!
+  user: User!
+  category: PostCategory!
+  type: String!
+  createdAt: String!
+  updatedAt: String!
+  deletedAt: String!
+  comments: [Comment!]
+}
+
+type User {
+  id: Int!
+  username: String!
+  email: String!
+  emailVerifiedAt: String!
+  createdAt: String!
+  isBanned: Boolean!
+}
+
+type Query {
+  welcome: String!
+}
