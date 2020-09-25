@@ -42,6 +42,27 @@ type User {
   isBanned: Boolean!
 }
 
+type LoginType {
+  token: String!
+  expiresIn: Float!
+}
+
 type Query {
   welcome: String!
+}
+
+type Mutation {
+  register(registerInput: RegisterInput!): LoginType!
+  login(loginInput: LoginInput!): LoginType!
+}
+
+input RegisterInput {
+  email: String!
+  password: String!
+  secretKey: String!
+}
+
+input LoginInput {
+  username: String!
+  password: String!
 }

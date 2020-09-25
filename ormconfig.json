@@ -6,12 +6,11 @@
     "password": "123456789",
     "database": "cv",
     "entities": [
-        "dist/**/*.entity{.ts,.js}"
+        "dist/**/*.entity.js"
     ],
     "migrations": [
-        "dist/shared/migrations/*{.ts,.js}"
+        "dist/shared/migrations/*.js"
     ],
-    "synchronize": false,
+    "synchronize": true,
     "migrationRun": false
-
 }

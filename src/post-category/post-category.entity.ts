@@ -1,4 +1,4 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany, CreateDateColumn, UpdateDateColumn, DeleteDateColumn } from "typeorm";
 import { Post } from "src/post/post.entity";
 import { ObjectType, Field, Int } from "@nestjs/graphql";
 
@@ -17,15 +17,15 @@ export class PostCategory extends BaseEntity {
     @Field(type => [Post])
     posts: Post[];
 
-    @Column({ type: 'timestamp', default: () => "CURRENT_TIMESTAMP" })
+    @CreateDateColumn()
     @Field(type => String)
     createdAt: Date;
 
-    @Column({ type: 'timestamp', default: () => "CURRENT_TIMESTAMP" })
+    @UpdateDateColumn()
     @Field(type => String)
     updatedAt: Date;
 
-    @Column({ type: 'timestamp', nullable: true })
+    @DeleteDateColumn()
     @Field(type => String)
     deletedAt: Date;
 }

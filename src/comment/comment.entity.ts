@@ -1,4 +1,4 @@
-import { BaseEntity, PrimaryGeneratedColumn, Entity, Column, ManyToOne } from "typeorm";
+import { BaseEntity, PrimaryGeneratedColumn, Entity, Column, ManyToOne, CreateDateColumn } from "typeorm";
 import { User } from "src/auth/user.entity";
 import { Post } from "src/post/post.entity";
 import { ObjectType, Int, Field } from "@nestjs/graphql";
@@ -22,7 +22,7 @@ export class Comment extends BaseEntity {
     @Field(type => Boolean)
     isActive: boolean;
 
-    @Column({ type: 'timestamp', default: () => "CURRENT_TIMESTAMP" })
+    @CreateDateColumn()
     @Field(type => String)
     createdAt: Date;
 

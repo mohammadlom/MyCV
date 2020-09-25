@@ -1,4 +1,4 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, UpdateDateColumn, CreateDateColumn, DeleteDateColumn } from "typeorm";
 import { User } from "src/auth/user.entity";
 import { PostCategory } from "src/post-category/post-category.entity";
 import { PostType } from "./post-type.enum";
@@ -36,15 +36,15 @@ export class Post extends BaseEntity {
     @Field()
     type: PostType;
 
-    @Column({ type: 'timestamp', default: () => "CURRENT_TIMESTAMP" })
+    @CreateDateColumn()
     @Field(type => String)
     createdAt: Date;
 
-    @Column({ type: 'timestamp', default: () => "CURRENT_TIMESTAMP" })
+    @UpdateDateColumn()
     @Field(type => String)
     updatedAt: Date;
 
-    @Column({ type: 'timestamp', nullable: true})
+    @DeleteDateColumn()
     @Field(type => String)
     deletedAt: Date;
 
