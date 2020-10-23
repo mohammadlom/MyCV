@@ -15,5 +15,5 @@ export class Role extends BaseEntity {
 
     @OneToMany(type => User, users => users.role)
     @Field(type => [User])
-    users: User[];
+    users: Promise<User[]>;
 }

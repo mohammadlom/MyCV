@@ -15,7 +15,7 @@ export class PostCategory extends BaseEntity {
 
     @OneToMany(type => Post, post => post.category, { cascade: true })
     @Field(type => [Post])
-    posts: Post[];
+    posts: Promise<Post[]>;
 
     @CreateDateColumn()
     @Field(type => String)

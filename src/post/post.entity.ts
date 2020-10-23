@@ -22,11 +22,11 @@ export class Post extends BaseEntity {
 
     @ManyToOne(type => User, user => user.posts, { eager: true, cascade: true })
     @Field(type => User)
-    user: User;
+    user: Promise<User>;
 
     @ManyToOne(type => PostCategory, postCategory => postCategory.posts, { eager: true })
     @Field(type => PostCategory)
-    category: PostCategory;
+    category: Promise<PostCategory>;
 
     @Column({
         type: 'enum',
@@ -34,7 +34,7 @@ export class Post extends BaseEntity {
         default: PostType.POST
     })
     @Field()
-    type: PostType;
+    type: string;
 
     @CreateDateColumn()
     @Field(type => String)
@@ -50,5 +50,5 @@ export class Post extends BaseEntity {
 
     @OneToMany(type => Comment, comment => comment.post)
     @Field(type => [Comment], { nullable: true })
-    comments?: Comment[];
+    comments?: Promise<Comment[]>;
 }

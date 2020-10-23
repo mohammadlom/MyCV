@@ -16,7 +16,7 @@ export class Comment extends BaseEntity {
 
     @ManyToOne(type => User, user => user.comments)
     @Field(type => User)
-    user: User;
+    user: Promise<User>;
 
     @Column({ default: false })
     @Field(type => Boolean)
@@ -28,6 +28,6 @@ export class Comment extends BaseEntity {
 
     @ManyToOne(type => Post, post => post.comments)
     @Field(type => Comment)
-    post: Post;
+    post: Promise<Post>;
 
 }
